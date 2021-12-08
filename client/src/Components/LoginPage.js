@@ -1,7 +1,10 @@
 import React from "react";
 import LoginModal from "./LoginModal";
 
-function LoginPage() {
+function LoginPage(props) {
+  // const getUserAuthorize = () => {
+  //   props.hasBeenAuthorized;
+  // };
   return (
     <div className="login-bg">
       <div className="title">
@@ -11,7 +14,6 @@ function LoginPage() {
         </span>
         <LoginModal />
       </div>
-      <form action=""></form>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function LoginModal() {
+function LoginModal(props) {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const navigate = useNavigate();
@@ -17,7 +17,10 @@ function LoginModal() {
     };
     Axios.post("http://localhost:4000/login", postData).then((response) => {
       alert(response.data.message);
-      if (response.data.login) navigate("/dashboard");
+      if (response.data.login) {
+        // props.hasBeenAuthorized = true;
+        navigate("/dashboard");
+      }
     });
   };
 

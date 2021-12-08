@@ -1,7 +1,7 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Components/Navbar";
 import Dashboard from "./Components/Pages/Dashboard";
 import Settings from "./Components/Pages/Settings";
@@ -10,6 +10,7 @@ import LoginPage from "./Components/LoginPage";
 import Error from "./Components/Pages/Error";
 
 function App() {
+  const { authorizeUser, setAuthorizeUser } = useState(false);
   return (
     <Router>
       <Routes>
