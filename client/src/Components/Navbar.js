@@ -29,8 +29,9 @@ function Navbar() {
             <span className="fw-bolder">PLM </span>
             <span className="fw-lighter">Student Portal</span>
           </div>
-          <form onSubmit={PLMsearch}>
-            <div className="input-group search-bar">
+          <div className="space"></div>
+          <form onSubmit={PLMsearch} className="search-bar">
+            <div className="input-group">
               <input
                 type="text"
                 value={search}

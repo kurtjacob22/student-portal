@@ -7,19 +7,18 @@ import Dashboard from "./Components/Pages/Dashboard";
 import Settings from "./Components/Pages/Settings";
 import Test from "./Components/Pages/Test";
 import LoginPage from "./Components/LoginPage";
+import Error from "./Components/Pages/Error";
 
 function App() {
   return (
-    <LoginPage />
-
-    // <Router>
-    //   <Navbar />
-    //   <Routes>
-    //     <Route path="/" element={<Test />} />
-    //     <Route path="/dashboard" element={<Dashboard />} />
-    //     <Route path="/settings" element={<Settings />} />
-    //   </Routes>
-    // </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<Dashboard authorized={false} />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginModal() {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const navigate = useNavigate();
 
   const loginBtn = (e) => {
-    console.log(username);
-    console.log(password);
+    // console.log(username);
+    // console.log(password);
     e.preventDefault();
     const postData = {
       username,
       password,
     };
     Axios.post("http://localhost:4000/login", postData).then((response) => {
-      console.log(response);
+      alert(response.data.message);
+      if (response.data.login) navigate("/dashboard");
     });
   };
 
@@ -22,11 +25,11 @@ function LoginModal() {
     <div className="modal-container">
       <div className="text-center">
         <br />
-        <a href="#myModal" className="trigger-btn" data-toggle="modal">
+        <a href="#login" className="trigger-btn" data-toggle="modal">
           LOGIN
         </a>
       </div>
-      <div id="myModal" className="modal fade">
+      <div id="login" className="modal fade">
         <div className="modal-dialog modal-login">
           <div className="modal-content">
             <div className="modal-header">

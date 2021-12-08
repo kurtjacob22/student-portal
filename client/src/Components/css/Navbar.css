@@ -1,12 +1,9 @@
-/* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
-
 .custom-container {
   background-color: white;
   color: #d5a106;
   display: flex;
   place-items: center;
-  justify-content: space-between;
+  justify-content: start;
   height: 70px;
   font-family: rubik;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
@@ -44,6 +41,7 @@
 
 .search-bar {
   background: none;
+  justify-self: end;
 }
 
 .nav-text {
@@ -82,8 +80,14 @@ li span {
   color: #7a6eaa;
 }
 
+.space {
+  width: 63vw;
+}
 @media screen and (max-width: 700px) {
   .search-bar {
     opacity: 0;
+  }
+  .space {
+    width: 0vw;
   }
 }
