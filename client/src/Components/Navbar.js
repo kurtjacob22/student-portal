@@ -3,7 +3,7 @@ import * as Ai from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import { IconContext } from "react-icons";
-import axios from "axios";
+import Axios from "axios";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -14,7 +14,7 @@ function Navbar() {
     const postData = {
       search,
     };
-    axios.post("http://localhost:4000/postreq", postData).then((response) => {
+    Axios.post("http://localhost:4000/postreq", postData).then((response) => {
       console.log(response);
     });
   };

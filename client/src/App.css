@@ -1,4 +1,6 @@
 @import "./Components/css/Navbar.css";
+@import "./Components/css/LoginPage.css";
+@import "./Components/css/LoginModal.css";
 
 * {
   box-sizing: border-box;

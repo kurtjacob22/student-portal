@@ -6,17 +6,20 @@ import Navbar from "./Components/Navbar";
 import Dashboard from "./Components/Pages/Dashboard";
 import Settings from "./Components/Pages/Settings";
 import Test from "./Components/Pages/Test";
+import LoginPage from "./Components/LoginPage";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Test />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/settings" element={<Settings />} />
-      </Routes>
-    </Router>
+    <LoginPage />
+
+    // <Router>
+    //   <Navbar />
+    //   <Routes>
+    //     <Route path="/" element={<Test />} />
+    //     <Route path="/dashboard" element={<Dashboard />} />
+    //     <Route path="/settings" element={<Settings />} />
+    //   </Routes>
+    // </Router>
   );
 }
 
