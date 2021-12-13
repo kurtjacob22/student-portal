@@ -1,7 +1,7 @@
 import React from "react";
 import LoginModal from "./LoginModal";
 
-function LoginPage(props) {
+function LoginPage() {
   // const getUserAuthorize = () => {
   //   props.hasBeenAuthorized;
   // };

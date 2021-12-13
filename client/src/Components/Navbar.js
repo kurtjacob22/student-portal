@@ -18,6 +18,7 @@ function Navbar() {
       console.log(response);
     });
   };
+
   return (
     <>
       <IconContext.Provider value={{ color: "#7A6EAA" }}>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
+import auth from "./Auth";
 
 function LoginModal(props) {
   const [username, setUsername] = useState(null);
@@ -17,9 +18,13 @@ function LoginModal(props) {
     };
     Axios.post("http://localhost:4000/login", postData).then((response) => {
       alert(response.data.message);
+      // console.log(response.data);
       if (response.data.login) {
-        // props.hasBeenAuthorized = true;
-        navigate("/dashboard");
+        auth.login();
+        // console.log(auth.isAuthenticated());
+      } else {
+        auth.logout();
+        // console.log(auth.isAuthenticated());
       }
     });
   };
@@ -69,12 +74,12 @@ function LoginModal(props) {
                   />
                 </div>
                 <div className="form-group">
-                  <input
-                    type="submit"
+                  <button
                     className="btn btn-primary btn-block btn-lg"
-                    value="Login"
                     onClick={loginBtn}
-                  />
+                  >
+                    Login
+                  </button>
                 </div>
               </form>
             </div>

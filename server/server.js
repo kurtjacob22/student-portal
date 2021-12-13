@@ -6,11 +6,19 @@ const connection = require("./db");
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/userAuthorized", function (req, res) {
+  res.send({ authorized: true });
+});
+app.post("/userUnauthorized", function (req, res) {
+  res.send({ authorized: false });
+});
 
 app.post("/postreq", async (req, res, next) => {
   const ADD_QUERY = `INSERT INTO studentportal.userlogin (email, password) VALUES ('${req.body.search}', '${req.body.search}')`;
-  console.log("data has been received");
+  // console.log("data has been received");
   connection.query(ADD_QUERY, (err, res) => {
     if (err) {
       console.log(err);
@@ -31,6 +39,7 @@ app.post("/login", async (req, res, next) => {
     }
 
     if (result.length > 0) {
+      // res.send(result);
       res.send({ message: `Hello ${req.body.username}!`, login: true });
     } else {
       res.send({ message: "Incorrect password/user!", login: false });
