@@ -1,0 +1,20 @@
+export const UserInfo = [
+  {
+    studentId: null,
+    surname: null,
+    middlename: null,
+    firstname: null,
+    suffix: null,
+    gender: null,
+    civilStatus: null,
+    citizenship: null,
+    registrationStatus: null,
+    degree: null,
+    collegeId: null,
+    yearLevel: null,
+    birthDay: null,
+    address: null,
+    contactNumber: null,
+    attendanceKey: null,
+  },
+];

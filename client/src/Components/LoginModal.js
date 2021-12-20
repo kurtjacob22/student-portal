@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import auth from "./Auth";
+import { UserInfo } from "./UserInfo";
 
 function LoginModal() {
   const [username, setUsername] = useState(null);
@@ -21,8 +22,24 @@ function LoginModal() {
       // console.log(response.data);
       if (response.data.login) {
         auth.login();
-        auth.authenticated = true;
-        navigate(`/dashboard/1/${response.data.id * 9}`);
+        UserInfo.studentId = response.data.userInfo.studentId;
+        UserInfo.surname = response.data.userInfo.surname;
+        UserInfo.middlename = response.data.userInfo.middlename;
+        UserInfo.firstname = response.data.userInfo.firstname;
+        UserInfo.suffix = response.data.userInfo.suffix;
+        UserInfo.gender = response.data.userInfo.gender;
+        UserInfo.civilStatus = response.data.userInfo.civilStatus;
+        UserInfo.citizenship = response.data.userInfo.citizenship;
+        UserInfo.registrationStatus = response.data.userInfo.registrationStatus;
+        UserInfo.degree = response.data.userInfo.degree;
+        UserInfo.collegeId = response.data.userInfo.collegeId;
+        UserInfo.yearLevel = response.data.userInfo.yearLevel;
+        UserInfo.birthDay = response.data.userInfo.birthDay;
+        UserInfo.address = response.data.userInfo.address;
+        UserInfo.contactNumber = response.data.userInfo.contactNumber;
+        UserInfo.attendanceKey = response.data.userInfo.attendanceKey;
+        console.log(UserInfo);
+        navigate(`/dashboard/1/${UserInfo.studentId * 97}`);
         // console.log(auth.isAuthenticated());
       } else {
         auth.logout();
@@ -79,6 +96,8 @@ function LoginModal() {
                   <button
                     className="btn btn-primary btn-block btn-lg"
                     onClick={loginBtn}
+                    data-dismiss="modal"
+                    aria-hidden="false"
                   >
                     Login
                   </button>

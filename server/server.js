@@ -45,6 +45,7 @@ app.post("/login", async (req, res, next) => {
         message: `Hello ${result[0].firstname} ${result[0].surname}!`,
         login: true,
         id: result[0].studentId,
+        userInfo: result[0],
       });
     } else {
       res.send({ message: "Incorrect password/user!", login: false });

@@ -14,7 +14,6 @@ function App() {
         <Route path="/logout" element={<LoginPage />} />
         <Route path="/home" element={<LoginPage />} />
         <Route path="/dashboard" element={<Dashboard authorized={false} />} />
-        //{" "}
         <Route
           path="/dashboard/1/"
           element={<Dashboard authorized={false} />}
