@@ -45,11 +45,6 @@
   transition: 350ms;
 }
 
-.search-bar {
-  background: none;
-  justify-self: end;
-}
-
 .nav-text {
   font-family: rubik;
   font-weight: lighter;
@@ -100,9 +95,6 @@ li span {
   width: 63vw;
 }
 @media screen and (max-width: 700px) {
-  .search-bar {
-    opacity: 0;
-  }
   .space {
     width: 0vw;
   }

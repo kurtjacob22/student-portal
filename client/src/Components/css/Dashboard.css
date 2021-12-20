@@ -1,0 +1,35 @@
+.dashboard {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  flex-direction: column;
+}
+.dashboard-name-intro {
+  font-weight: bold;
+  font-family: rubik;
+  color: transparent;
+  font-size: 6rem;
+  /* height: 100vh; */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #d5a106;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-search {
+  width: 25vw;
+  height: 5vh;
+  background: none;
+  color: black !important;
+}
+.container-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-bar-PLM {
+  color: #7a6eaa;
+  margin-left: 10px;
+}

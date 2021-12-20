@@ -3,21 +3,10 @@ import * as Ai from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import { IconContext } from "react-icons";
-import Axios from "axios";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
-  const [search, setSearch] = useState("");
   const showSidebar = () => setSidebar(!sidebar);
-  const PLMsearch = (e) => {
-    e.preventDefault();
-    const postData = {
-      search,
-    };
-    Axios.post("http://localhost:4000/postreq", postData).then((response) => {
-      console.log(response);
-    });
-  };
 
   return (
     <>
@@ -31,25 +20,6 @@ function Navbar() {
             <span className="fw-lighter">Student Portal</span>
           </div>
           <div className="space"></div>
-          <form onSubmit={PLMsearch} className="search-bar">
-            <div className="input-group">
-              <input
-                type="text"
-                value={search}
-                className="form-control"
-                placeholder="Search"
-                onInput={(e) => setSearch(e.target.value)}
-              />
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                id="button-addon2"
-                onClick={PLMsearch}
-              >
-                Search
-              </button>
-            </div>
-          </form>
         </div>
 
         <nav className={sidebar ? "side-nav active" : "side-nav"}>

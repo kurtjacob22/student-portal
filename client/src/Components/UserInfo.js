@@ -3,7 +3,7 @@ export const UserInfo = [
     studentId: null,
     surname: null,
     middlename: null,
-    firstname: null,
+    firstname: "",
     suffix: null,
     gender: null,
     civilStatus: null,
@@ -15,6 +15,5 @@ export const UserInfo = [
     birthDay: null,
     address: null,
     contactNumber: null,
-    attendanceKey: null,
   },
 ];

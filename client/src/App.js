@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./Components/Pages/Dashboard";
 import LoginPage from "./Components/LoginPage";
 import Error from "./Components/Pages/Error";
+import Profile from "./Components/Pages/Profile";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           path="/dashboard/1/:id"
           element={<Dashboard authorized={true} />}
         />
+        <Route path="/profile/1/:id" element={<Profile />} />
+
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

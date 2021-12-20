@@ -7,7 +7,7 @@ function LoginPage() {
     UserInfo.studentId = null;
     UserInfo.surname = null;
     UserInfo.middlename = null;
-    UserInfo.firstname = null;
+    UserInfo.firstname = "";
     UserInfo.suffix = null;
     UserInfo.gender = null;
     UserInfo.civilStatus = null;

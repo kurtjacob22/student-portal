@@ -1,7 +1,8 @@
 import React from "react";
 import * as Ai from "react-icons/ai";
 import * as Io from "react-icons/io5";
-
+import * as Fa from "react-icons/fa";
+import { UserInfo } from "./UserInfo";
 export const SidebarData = [
   {
     title: "",
@@ -11,26 +12,26 @@ export const SidebarData = [
   },
   {
     title: "Dashboard",
-    path: "/dashboard",
+    path: `/dashboard/1/${UserInfo.studentId * 97 + 1 * 349834 * 6}`,
     icon: <Ai.AiFillHome />,
     cName: "nav-text",
   },
   {
     title: "Enroll",
-    path: "/enroll",
-    icon: <Ai.AiFillSetting />,
+    path: `/enroll/1/${UserInfo.studentId * 97 + 1 * 349834 * 6}`,
+    icon: <Fa.FaSchool />,
     cName: "nav-text",
   },
   {
     title: "Courses",
-    path: "/schedule",
+    path: `/courses/1/${UserInfo.studentId * 97 + 1 * 349834 * 6}`,
     icon: <Ai.AiFillBook />,
     cName: "nav-text",
   },
 
   {
     title: "Profile",
-    path: "/profile",
+    path: `/profile/1/${UserInfo.studentId * 97 + 1 * 349834 * 6}`,
     icon: <Ai.AiFillProfile />,
     cName: "nav-text",
   },
@@ -68,7 +69,7 @@ export const SidebarData = [
   },
   {
     title: "Settings",
-    path: "/settings",
+    path: `/settings/1/${UserInfo.studentId * 97 + 1 * 349834 * 6}`,
     icon: <Ai.AiFillSetting />,
     cName: "nav-text",
   },

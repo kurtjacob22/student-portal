@@ -37,9 +37,7 @@ function LoginModal() {
         UserInfo.birthDay = response.data.userInfo.birthDay;
         UserInfo.address = response.data.userInfo.address;
         UserInfo.contactNumber = response.data.userInfo.contactNumber;
-        UserInfo.attendanceKey = response.data.userInfo.attendanceKey;
-        console.log(UserInfo);
-        navigate(`/dashboard/1/${UserInfo.studentId * 97}`);
+        navigate(`/dashboard/1/${UserInfo.studentId * 97 + 1 * 349834 * 6}`);
         // console.log(auth.isAuthenticated());
       } else {
         auth.logout();

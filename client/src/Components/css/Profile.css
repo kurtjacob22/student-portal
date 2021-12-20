@@ -1,0 +1,33 @@
+.profile {
+  display: flex;
+  height: 120vh !important;
+  align-items: start !important;
+  justify-content: center !important;
+  font-size: 3rem;
+  flex-direction: column;
+}
+
+.student-info {
+  font-family: rubik;
+  font-size: 2rem;
+  margin-top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.363);
+}
+
+.student-info > span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.edit-button {
+  background-color: #d5a106;
+  border: none;
+  color: white;
+  padding-top: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 16px;
+  font-family: Raleway;
+}
