@@ -3,7 +3,7 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import auth from "./Auth";
 
-function LoginModal(props) {
+function LoginModal() {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const navigate = useNavigate();
@@ -21,6 +21,8 @@ function LoginModal(props) {
       // console.log(response.data);
       if (response.data.login) {
         auth.login();
+        auth.authenticated = true;
+        navigate(`/dashboard/1/${response.data.id * 9}`);
         // console.log(auth.isAuthenticated());
       } else {
         auth.logout();

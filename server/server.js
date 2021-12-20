@@ -31,7 +31,7 @@ app.post("/postreq", async (req, res, next) => {
 });
 
 app.post("/login", async (req, res, next) => {
-  const CHECK_QUERY = `SELECT * FROM studentportal.userlogin WHERE email LIKE '${req.body.username}' AND password LIKE '${req.body.password}';`;
+  const CHECK_QUERY = `SELECT * FROM studentportal.students WHERE studentId LIKE '${req.body.username}' AND password LIKE '${req.body.password}';`;
   console.log("data has been received");
   connection.query(CHECK_QUERY, (err, result) => {
     if (err) {
@@ -40,7 +40,12 @@ app.post("/login", async (req, res, next) => {
 
     if (result.length > 0) {
       // res.send(result);
-      res.send({ message: `Hello ${req.body.username}!`, login: true });
+      // console.log(result[0]);
+      res.send({
+        message: `Hello ${result[0].firstname} ${result[0].surname}!`,
+        login: true,
+        id: result[0].studentId,
+      });
     } else {
       res.send({ message: "Incorrect password/user!", login: false });
     }
