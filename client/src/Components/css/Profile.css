@@ -12,6 +12,7 @@
   font-size: 2rem;
   margin-top: 10px;
   border: 1px solid rgba(0, 0, 0, 0.363);
+  font-weight: lighter;
 }
 
 .student-info > span {
@@ -23,11 +24,11 @@
   background-color: #d5a106;
   border: none;
   color: white;
-  padding-top: 6px;
+  padding-top: 6px !important;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  margin-left: 10px;
-  font-size: 16px;
+  display: inline-block !important;
+  margin-left: 10px !important;
+  font-size: 16px !important;
   font-family: Raleway;
 }

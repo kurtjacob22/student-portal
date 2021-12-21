@@ -77,6 +77,27 @@
   font-size: 2rem;
   font-family: raleway;
 }
+.trigger-btn2 {
+  background-color: #d5a106;
+  border: none;
+  color: white;
+  padding-top: 6px !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block !important;
+  margin-left: 10px !important;
+  font-size: 16px !important;
+  font-family: Raleway;
+  padding-left: 10px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.trigger-btn2:hover {
+  background-color: white;
+  color: #d5a106;
+  border: 1px solid #d5a106;
+}
 
 .trigger-btn:hover {
   background-color: white;

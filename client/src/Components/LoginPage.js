@@ -16,7 +16,6 @@ function LoginPage() {
     UserInfo.degree = null;
     UserInfo.collegeId = null;
     UserInfo.yearLevel = null;
-    UserInfo.birthDay = null;
     UserInfo.address = null;
     UserInfo.contactNumber = null;
     UserInfo.attendanceKey = null;

@@ -12,7 +12,6 @@ export const UserInfo = [
     degree: null,
     collegeId: null,
     yearLevel: null,
-    birthDay: null,
     address: null,
     contactNumber: null,
   },

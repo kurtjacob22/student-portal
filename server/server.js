@@ -54,6 +54,20 @@ app.post("/login", async (req, res, next) => {
   console.log(req.body);
 });
 
+app.post("/editContacts", async (req, res, next) => {
+  const UPDATE_QUERY = `update studentportal.students set contactNumber = ${req.body.newContact} where studentId = ${req.body.id}`;
+  connection.query(UPDATE_QUERY, (err, res) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+  res.send({
+    message: "success",
+    newContactNumber: req.body.newContact,
+  });
+  console.log(req.body);
+});
+
 //! PORT
 app.listen(4000, () => {
   console.log("server is working in port 4000");

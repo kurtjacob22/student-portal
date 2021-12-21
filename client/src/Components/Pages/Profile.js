@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { UserInfo } from "../UserInfo";
 import Navbar from "../Navbar";
+import Axios from "axios";
 
 function Profile() {
+  const [newContact, setNewContact] = useState();
+  const id = UserInfo.studentId;
   const checkCollege = (collegeId) => {
     if (collegeId === 1) {
       return "College of Engineering and Technology";
@@ -22,19 +25,27 @@ function Profile() {
       return "College of Science";
     }
   };
-  const editDetails = (info) => {
-    if (info === "birthday") {
-      alert("birthday");
-    } else if (info === "contacts") {
-      alert("contacts");
-    } else {
-      alert("password");
-    }
+  const postData = {
+    newContact,
+    id,
+  };
+  const editDetails = () => {
+    Axios.post("http://localhost:4000/editContacts", postData).then(
+      (response) => {
+        UserInfo.contactNumber = response.data.newContactNumber;
+        alert(response.data.message);
+        // console.log(response.data);
+      }
+    );
   };
   return (
     <>
       <Navbar />
-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div className="profile">
         <span className="student-info container">
           <span>Student ID:</span> {UserInfo.studentId}
@@ -75,37 +86,66 @@ function Profile() {
         <span className="student-info container">
           <span>Year Level:</span> {UserInfo.yearLevel}
         </span>
-        <span className="student-info container">
-          <span>Birthday:</span> {UserInfo.birthDay}{" "}
-          <button
-            className="edit-button"
-            onClick={() => editDetails("birthday")}
-          >
-            EDIT
-          </button>
-        </span>
+
         <span className="student-info container">
           <span>Address:</span> {UserInfo.address}
         </span>
         <span className="student-info container">
           <span>Contact Number: </span>
           {UserInfo.contactNumber}
-          <button
-            className="edit-button"
-            onClick={() => editDetails("contacts")}
-          >
-            EDIT
-          </button>
+          <a href="#login" className="trigger-btn2" data-toggle="modal">
+            Edit
+          </a>
         </span>
-        <span className="student-info container">
-          <span>Password:</span> ***********
-          <button
-            className="edit-button"
-            onClick={() => editDetails("pasword")}
-          >
-            EDIT
-          </button>
-        </span>
+
+        <div className="modal-container">
+          <div className="text-center">
+            <br />
+          </div>
+          <div id="login" className="modal fade">
+            <div className="modal-dialog modal-login">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h4 className="modal-title">Edit Contact Number</h4>
+                  <button
+                    type="button"
+                    className="close"
+                    data-dismiss="modal"
+                    aria-hidden="true"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <form action="#">
+                    <div className="form-group">
+                      <i className="fa bi-telephone-minus-fill"></i>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="09XX-XXXX-XXX"
+                        required="required"
+                        onInput={(e) => setNewContact(e.target.value)}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <button
+                        className="btn btn-primary btn-block btn-lg"
+                        onClick={editDetails}
+                        data-dismiss="modal"
+                        aria-hidden="false"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <div className="modal-footer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
