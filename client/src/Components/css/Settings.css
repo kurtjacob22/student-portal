@@ -1,0 +1,82 @@
+.settings-title {
+  font-size: 3rem;
+  color: #337ab7;
+  font-weight: bold;
+}
+
+.utility-title {
+  font-size: 2rem !important;
+  color: white;
+  margin-top: 10px;
+  padding: 5px;
+  padding-left: 20px;
+  font-weight: bold;
+  background-color: #d5a106;
+}
+
+.label1-util {
+  font-weight: 400;
+  font-family: raleway;
+  text-align: justify;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.span-util {
+  color: #d5a106;
+  font-weight: bold;
+}
+
+.label2-util {
+  padding-left: 50px;
+  color: #337ab7;
+  text-decoration: underline;
+}
+.change-password-field {
+  width: 80%;
+  text-align: center;
+}
+
+.change-pass-title {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #d5a106;
+  color: white;
+}
+
+#newPass,
+#prevPass {
+  margin-top: 10px;
+  padding: 8px;
+  width: 50vw;
+}
+
+.btn-update-password {
+  margin-top: 10px;
+  width: 50vw;
+}
+
+.btn-delete-history {
+  margin-top: 10px;
+  width: 80vw;
+}
+
+.log-field {
+  color: white;
+  padding: 6px;
+  background-color: #d5a106;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+table {
+  width: 80vw;
+  background-color: #d5a106;
+  color: white;
+  text-align: center;
+}
+
+.table-label {
+  font-weight: bold;
+  font-size: 2rem;
+}

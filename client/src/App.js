@@ -5,6 +5,7 @@ import Dashboard from "./Components/Pages/Dashboard";
 import LoginPage from "./Components/LoginPage";
 import Error from "./Components/Pages/Error";
 import Profile from "./Components/Pages/Profile";
+import Settings from "./Components/Pages/Settings";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/logout" element={<LoginPage />} />
         <Route path="/home" element={<LoginPage />} />
+
         <Route path="/dashboard" element={<Dashboard authorized={false} />} />
         <Route
           path="/dashboard/1/"
@@ -24,7 +26,7 @@ function App() {
           element={<Dashboard authorized={true} />}
         />
         <Route path="/profile/1/:id" element={<Profile />} />
-
+        <Route path="/settings/1/:id" element={<Settings />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

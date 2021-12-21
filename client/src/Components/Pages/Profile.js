@@ -47,50 +47,50 @@ function Profile() {
       <br />
       <br />
       <div className="profile">
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Student ID:</span> {UserInfo.studentId}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Last Name: </span>
           {UserInfo.surname}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Middle Name: </span>
           {UserInfo.middlename}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>First Name:</span> {UserInfo.firstname}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Suffix:</span> {UserInfo.suffix}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Gender:</span> {UserInfo.gender}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Civil Status:</span> {UserInfo.civilStatus}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Citizenship:</span> {UserInfo.citizenship}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Registration Status:</span>
           {UserInfo.registrationStatus ? "Regular" : "Irregular"}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Degree:</span> {UserInfo.degree}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>College:</span> {checkCollege(UserInfo.collegeId)}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Year Level:</span> {UserInfo.yearLevel}
         </span>
 
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Address:</span> {UserInfo.address}
         </span>
-        <span className="student-info container">
+        <span className="student-info container animate__animated animate__fadeInUp">
           <span>Contact Number: </span>
           {UserInfo.contactNumber}
           <a href="#login" className="trigger-btn2" data-toggle="modal">
@@ -121,7 +121,7 @@ function Profile() {
                     <div className="form-group">
                       <i className="fa bi-telephone-minus-fill"></i>
                       <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         placeholder="09XX-XXXX-XXX"
                         required="required"

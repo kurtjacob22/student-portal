@@ -21,6 +21,16 @@ function LoginModal() {
       alert(response.data.message);
       // console.log(response.data);
       if (response.data.login) {
+        Axios.get(
+          "https://api.ipgeolocation.io/ipgeo?apiKey=76593fbcba7d48e1bb79e86c61d7cd28"
+        ).then((response) => {
+          const ip = response.data.ip;
+          const city = response.data.city;
+          const countryName = response.data.country_name;
+          const timeAndDate = response.data.time_zone.current_time;
+          const logData = { ip, city, countryName, timeAndDate, username };
+          Axios.post("http://localhost:4000/logHistory", logData);
+        });
         auth.login();
         UserInfo.studentId = response.data.userInfo.studentId;
         UserInfo.surname = response.data.userInfo.surname;
