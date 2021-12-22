@@ -1,27 +1,44 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import { UserInfo } from "../UserInfo";
 import Axios from "axios";
 
 function Settings() {
   const id = UserInfo.studentId;
-  const logHistory = useRef({});
-  useEffect(() => {
+  // const logHistory = useRef({});
+  let logs = {};
+  const [dataHistory1, setDataHistory1] = useState("");
+  const [dataHistory2, setDataHistory2] = useState("");
+  const [dataHistory3, setDataHistory3] = useState("");
+  const [dataHistory4, setDataHistory4] = useState("");
+  const [dataHistory5, setDataHistory5] = useState("");
+
+  const viewLogs = () => {
     const postData = {
       id,
     };
     Axios.post("http://localhost:4000/viewLogs", postData).then((response) => {
-      const logs = response.data.logData;
-      // const logLength = response.data.logData.length;
-      logHistory.current = response.data.logData;
-      // for (var i = 0; i <= logLength; i++) {
-      //   LogHistory[i].dateLog = logs[logLength - i].dateLog;
-      //   LogHistory[i].location = logs[logLength - i].location;
-      //   LogHistory[i].ipAddress = logs[logLength - i].ipAddress;
-      // }
+      logs = response.data.logData;
+      const logLength = response.data.logData.length - 1;
+      // logHistory.current = { logs };
+      setDataHistory1(response.data.logData[logLength]);
+      if (response.data.logData[logLength - 1] !== undefined) {
+        setDataHistory2(response.data.logData[logLength - 1]);
+      }
+      if (response.data.logData[logLength - 2] !== undefined) {
+        setDataHistory3(response.data.logData[logLength - 2]);
+      }
+      if (response.data.logData[logLength - 3] !== undefined) {
+        setDataHistory4(response.data.logData[logLength - 3]);
+      }
+      if (response.data.logData[logLength - 4] !== undefined) {
+        setDataHistory5(response.data.logData[logLength - 4]);
+      }
+      // console.log(dataHistory1);
       // console.log(logHistory.current.logs[0].studentId);
+      // console.log(logHistory);
     });
-  });
+  };
   return (
     <>
       <Navbar />
@@ -82,17 +99,44 @@ function Settings() {
         <fieldset className="container">
           <center>
             <legend className="log-field">Log History</legend>
-
-            {logHistory.current.map((item, index) => {
-              return (
-                <>
-                  <span>{item.logData}</span>
-                  <span>{index}</span>
-                </>
-              );
-            })}
-
-            <div className="container log-data"></div>
+            <button className="btn btn-primary" onClick={viewLogs}>
+              View History
+            </button>
+            <br />
+            <br />
+            <br />
+            <table>
+              <tr className="log-label">
+                <td>Date/Time</td>
+                <td>Location</td>
+                <td>IP Address</td>
+              </tr>
+              <tr className="log-label">
+                <td>{dataHistory1.dateLog}</td>
+                <td>{dataHistory1.location}</td>
+                <td>{dataHistory1.ipAddress}</td>
+              </tr>
+              <tr className="log-label">
+                <td>{dataHistory2.dateLog}</td>
+                <td>{dataHistory2.location}</td>
+                <td>{dataHistory2.ipAddress}</td>
+              </tr>
+              <tr className="log-label">
+                <td>{dataHistory3.dateLog}</td>
+                <td>{dataHistory3.location}</td>
+                <td>{dataHistory3.ipAddress}</td>
+              </tr>
+              <tr className="log-label">
+                <td>{dataHistory4.dateLog}</td>
+                <td>{dataHistory4.location}</td>
+                <td>{dataHistory4.ipAddress}</td>
+              </tr>
+              <tr className="log-label">
+                <td>{dataHistory5.dateLog}</td>
+                <td>{dataHistory5.location}</td>
+                <td>{dataHistory5.ipAddress}</td>
+              </tr>
+            </table>
 
             <button className="btn btn-primary btn-delete-history">
               Delete History

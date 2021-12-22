@@ -75,17 +75,15 @@ table {
   color: white;
   text-align: center;
 }
-
 .log-label {
   font-weight: bold;
   font-size: 2rem;
 }
 
-.log-label > tr {
-  display: flex;
-}
-
 .log-label > tr > td {
   margin: auto;
-  border: 1px solid black;
+}
+
+li {
+  list-style-type: none;
 }

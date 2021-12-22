@@ -31,14 +31,14 @@ app.post("/userUnauthorized", function (req, res) {
 // });
 
 app.post("/logHistory", async (req, res, next) => {
-  // const ADD_QUERY = `INSERT INTO studentportal.loghistory VALUES (${req.body.username}, '${req.body.city}, ${req.body.countryName}', '${req.body.ip}', '${req.body.timeAndDate}')`;
-  // // console.log("data has been received");
-  // connection.query(ADD_QUERY, (err, res) => {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  // });
-  // console.log(req.body);
+  const ADD_QUERY = `INSERT INTO studentportal.loghistory VALUES (${req.body.username}, '${req.body.city}, ${req.body.countryName}', '${req.body.ip}', '${req.body.timeAndDate}')`;
+  // console.log("data has been received");
+  connection.query(ADD_QUERY, (err, res) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+  console.log(req.body);
 });
 
 app.post("/viewLogs", async (req, res) => {
