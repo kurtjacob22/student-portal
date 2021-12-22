@@ -41,6 +41,18 @@ app.post("/logHistory", async (req, res, next) => {
   console.log(req.body);
 });
 
+app.post("/deleteLogs", async (req, res) => {
+  const DELETE_QUERY = `DELETE FROM studentportal.loghistory WHERE studentId LIKE ${req.body.id}`;
+  connection.query(DELETE_QUERY, (err, result) => {
+    if (err) {
+      console.log(err);
+      // res.send({ message: err });
+    }
+    console.log(req.body);
+  });
+  res.send({ message: "Success" });
+});
+
 app.post("/viewLogs", async (req, res) => {
   const GET_QUERY = `SELECT * FROM studentportal.loghistory WHERE studentId LIKE ${req.body.id}`;
   connection.query(GET_QUERY, (err, result) => {
@@ -48,6 +60,18 @@ app.post("/viewLogs", async (req, res) => {
       console.log(err);
     }
     res.send({ logData: result, message: "Success" });
+  });
+
+  console.log(req.body);
+});
+
+app.post("/updatePassword", async (req, res) => {
+  const UPDATE_PASSWORD = `UPDATE studentportal.students SET password = '${req.body.newPassword}' WHERE studentId LIKE ${req.body.id}`;
+  connection.query(UPDATE_PASSWORD, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send({ message: "Success" });
   });
 
   console.log(req.body);

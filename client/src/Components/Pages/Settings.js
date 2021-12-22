@@ -12,16 +12,41 @@ function Settings() {
   const [dataHistory3, setDataHistory3] = useState("");
   const [dataHistory4, setDataHistory4] = useState("");
   const [dataHistory5, setDataHistory5] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+
+  const updatePassword = () => {
+    const postData = { id, newPassword };
+    if (newPassword !== currentPassword) {
+      Axios.post("http://localhost:4000/updatePassword", postData).then(
+        (response) => {
+          alert(response.data.message);
+        }
+      );
+    } else {
+      alert("Please Enter a Valid Password");
+    }
+  };
+
+  const deleteLogs = () => {
+    const postData = { id };
+    Axios.post("http://localhost:4000/deleteLogs", postData).then(
+      (response) => {
+        alert(response.data.message);
+      }
+    );
+  };
 
   const viewLogs = () => {
-    const postData = {
-      id,
-    };
+    const postData = { id };
     Axios.post("http://localhost:4000/viewLogs", postData).then((response) => {
       logs = response.data.logData;
       const logLength = response.data.logData.length - 1;
       // logHistory.current = { logs };
-      setDataHistory1(response.data.logData[logLength]);
+
+      if (response.data.logData[logLength] !== undefined) {
+        setDataHistory1(response.data.logData[logLength]);
+      }
       if (response.data.logData[logLength - 1] !== undefined) {
         setDataHistory2(response.data.logData[logLength - 1]);
       }
@@ -80,6 +105,7 @@ function Settings() {
                 id="prevPass"
                 className="form-control container"
                 placeholder="enter previous password"
+                onInput={(e) => setCurrentPassword(e.target.value)}
               />
               <br />
               <input
@@ -88,9 +114,13 @@ function Settings() {
                 id="newPass"
                 className="form-control container"
                 placeholder="enter new password"
+                onInput={(e) => setNewPassword(e.target.value)}
               />
               <br />
-              <button className="btn btn-primary btn-update-password">
+              <button
+                className="btn btn-primary btn-update-password"
+                onClick={updatePassword}
+              >
                 Update Password
               </button>
             </fieldset>
@@ -138,7 +168,10 @@ function Settings() {
               </tr>
             </table>
 
-            <button className="btn btn-primary btn-delete-history">
+            <button
+              className="btn btn-primary btn-delete-history"
+              onClick={deleteLogs}
+            >
               Delete History
             </button>
           </center>
