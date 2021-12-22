@@ -46,6 +46,7 @@ function LoginModal() {
         UserInfo.yearLevel = response.data.userInfo.yearLevel;
         UserInfo.address = response.data.userInfo.address;
         UserInfo.contactNumber = response.data.userInfo.contactNumber;
+
         navigate(`/dashboard/1/${UserInfo.studentId * 97 + 1 * 349834 * 6}`);
         // console.log(auth.isAuthenticated());
       } else {

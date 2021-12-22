@@ -31,18 +31,18 @@ app.post("/userUnauthorized", function (req, res) {
 // });
 
 app.post("/logHistory", async (req, res, next) => {
-  const ADD_QUERY = `INSERT INTO studentportal.loghistory VALUES (${req.body.username}, '${req.body.city}, ${req.body.countryName}', '${req.body.ip}', '${req.body.timeAndDate}')`;
-  // console.log("data has been received");
-  connection.query(ADD_QUERY, (err, res) => {
-    if (err) {
-      console.log(err);
-    }
-  });
-  console.log(req.body);
+  // const ADD_QUERY = `INSERT INTO studentportal.loghistory VALUES (${req.body.username}, '${req.body.city}, ${req.body.countryName}', '${req.body.ip}', '${req.body.timeAndDate}')`;
+  // // console.log("data has been received");
+  // connection.query(ADD_QUERY, (err, res) => {
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  // });
+  // console.log(req.body);
 });
 
-app.get("/viewLogs", async (req, res) => {
-  const GET_QUERY = `SELECT * FROM studentportal.loghistory WHERE studentId LIKE '${req.body.id}'`;
+app.post("/viewLogs", async (req, res) => {
+  const GET_QUERY = `SELECT * FROM studentportal.loghistory WHERE studentId LIKE ${req.body.id}`;
   connection.query(GET_QUERY, (err, result) => {
     if (err) {
       console.log(err);

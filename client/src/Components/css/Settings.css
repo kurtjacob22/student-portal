@@ -46,7 +46,7 @@
 
 #newPass,
 #prevPass {
-  margin-top: 10px;
+  /* margin-top: 5px; */
   padding: 8px;
   width: 50vw;
 }
@@ -58,7 +58,7 @@
 
 .btn-delete-history {
   margin-top: 10px;
-  width: 80vw;
+  width: 100%;
 }
 
 .log-field {
@@ -70,13 +70,22 @@
 }
 
 table {
-  width: 80vw;
+  width: 100%;
   background-color: #d5a106;
   color: white;
   text-align: center;
 }
 
-.table-label {
+.log-label {
   font-weight: bold;
   font-size: 2rem;
+}
+
+.log-label > tr {
+  display: flex;
+}
+
+.log-label > tr > td {
+  margin: auto;
+  border: 1px solid black;
 }
