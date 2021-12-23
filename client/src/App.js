@@ -6,6 +6,7 @@ import LoginPage from "./Components/LoginPage";
 import Error from "./Components/Pages/Error";
 import Profile from "./Components/Pages/Profile";
 import Settings from "./Components/Pages/Settings";
+import Enroll from "./Components/Pages/Enroll";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         />
         <Route path="/profile/1/:id" element={<Profile />} />
         <Route path="/settings/1/:id" element={<Settings />} />
+        <Route path="/enroll/1/:id" element={<Enroll />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

@@ -5,6 +5,7 @@
 @import "./Components/css/Dashboard.css";
 @import "./Components/css/Profile.css";
 @import "./Components/css/Settings.css";
+@import "./Components/css/Enroll.css";
 
 * {
   box-sizing: border-box;

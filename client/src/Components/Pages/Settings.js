@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../Navbar";
 import { UserInfo } from "../UserInfo";
 import Axios from "axios";
@@ -6,7 +6,7 @@ import Axios from "axios";
 function Settings() {
   const id = UserInfo.studentId;
   // const logHistory = useRef({});
-  let logs = {};
+  // let logs = {};
   const [dataHistory1, setDataHistory1] = useState("");
   const [dataHistory2, setDataHistory2] = useState("");
   const [dataHistory3, setDataHistory3] = useState("");
@@ -40,7 +40,7 @@ function Settings() {
   const viewLogs = () => {
     const postData = { id };
     Axios.post("http://localhost:4000/viewLogs", postData).then((response) => {
-      logs = response.data.logData;
+      // logs = response.data.logData;
       const logLength = response.data.logData.length - 1;
       // logHistory.current = { logs };
 

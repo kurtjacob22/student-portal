@@ -1,0 +1,39 @@
+.enroll-title {
+  font-weight: bold;
+  font-family: rubik;
+}
+
+.btn-danger {
+  margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.li-availableCourses {
+  padding: 5px;
+  margin-left: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.li-availableCourses > div:last-child {
+  place-self: start end;
+  margin-left: auto;
+  margin-right: 70px;
+}
+
+/* {Object.keys(displayMajor.majorCourses).map((item, index) => {
+	return (
+	  <>
+		<li key={index} className="container li-availableCourses">
+		  <div>
+			{displayMajor.majorCourses[item].courseCode} -{" "}
+			{displayMajor.majorCourses[item].courseName}
+		  </div>
+		  <div>{displayMajor.majorCourses[item].studentCount}/50</div>
+		</li>
+	  </>
+	);
+  })} */

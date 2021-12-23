@@ -77,6 +77,54 @@ app.post("/updatePassword", async (req, res) => {
   console.log(req.body);
 });
 
+app.post("/viewAvailableCourses", async (req, res) => {
+  const GET_COURSES = `SELECT * FROM studentportal.availablesubjects WHERE collegeId LIKE ${req.body.id} AND type LIKE '${req.body.type}'`;
+  console.log(req.body.collegeId);
+  connection.query(GET_COURSES, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send({ message: "Success", courses: result });
+  });
+  console.log(req.body);
+});
+
+app.post("/viewAvailableCoursesMinor", async (req, res) => {
+  const GET_COURSES = `SELECT * FROM studentportal.availablesubjects WHERE collegeId NOT LIKE ${req.body.id} AND type LIKE '${req.body.type}'`;
+  console.log(req.body.collegeId);
+  connection.query(GET_COURSES, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send({ message: "Success", courses: result });
+  });
+  console.log(req.body);
+});
+
+app.post("/viewAvailableCoursesPED", async (req, res) => {
+  const GET_COURSES = `SELECT * FROM studentportal.availablesubjects WHERE collegeId NOT LIKE ${req.body.id} AND type LIKE '${req.body.type}'`;
+  console.log(req.body.collegeId);
+  connection.query(GET_COURSES, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send({ message: "Success", courses: result });
+  });
+  console.log(req.body);
+});
+
+app.post("/viewAvailableCoursesNSTP", async (req, res) => {
+  const GET_COURSES = `SELECT * FROM studentportal.availablesubjects WHERE collegeId NOT LIKE ${req.body.id} AND type LIKE '${req.body.type}'`;
+  console.log(req.body.collegeId);
+  connection.query(GET_COURSES, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send({ message: "Success", courses: result });
+  });
+  console.log(req.body);
+});
+
 app.post("/login", async (req, res, next) => {
   const CHECK_QUERY = `SELECT * FROM studentportal.students WHERE studentId LIKE '${req.body.username}' AND password LIKE '${req.body.password}';`;
   console.log("data has been received");
