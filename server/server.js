@@ -151,7 +151,7 @@ app.post("/login", async (req, res, next) => {
 
 app.post("/editContacts", async (req, res, next) => {
   const UPDATE_QUERY = `update studentportal.students set contactNumber = ${req.body.newContact} where studentId = ${req.body.id}`;
-  connection.query(UPDATE_QUERY, (err, res) => {
+  connection.query(UPDATE_QUERY, (err, result) => {
     if (err) {
       console.log(err);
     }
@@ -160,6 +160,17 @@ app.post("/editContacts", async (req, res, next) => {
     message: "success",
     newContactNumber: req.body.newContact,
   });
+  console.log(req.body);
+});
+
+app.post("/enroll", async (req, res) => {
+  const UPDATE_QUERY = `UPDATE studentportal.availablesubjects SET studentCount = ${req.body.studentCount} + 1 WHERE courseCode LIKE '${req.body.courseCode}'`;
+  connection.query(UPDATE_QUERY, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+  res.send({ message: "success", newStudentCount: req.body.studentCount + 1 });
   console.log(req.body);
 });
 

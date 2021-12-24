@@ -19,21 +19,10 @@ input[type="checkbox"] {
 }
 
 .li-availableCourses > div:last-child {
-  place-self: start end;
   margin-left: auto;
   margin-right: 70px;
 }
 
-/* {Object.keys(displayMajor.majorCourses).map((item, index) => {
-	return (
-	  <>
-		<li key={index} className="container li-availableCourses">
-		  <div>
-			{displayMajor.majorCourses[item].courseCode} -{" "}
-			{displayMajor.majorCourses[item].courseName}
-		  </div>
-		  <div>{displayMajor.majorCourses[item].studentCount}/50</div>
-		</li>
-	  </>
-	);
-  })} */
+.student-count {
+  margin-right: 10px;
+}

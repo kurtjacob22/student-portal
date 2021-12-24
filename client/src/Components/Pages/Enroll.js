@@ -9,8 +9,13 @@ function Enroll() {
   const [isPEDCheck, setIsPEDCheck] = useState(false);
   const [isNSTPCheck, setIsNSTPCheck] = useState(false);
   const collegeId = UserInfo.collegeId;
-  const [displayMajor, setDisplayMajor] = useState({});
-  const [displayMinor, setDisplayMinor] = useState({});
+  const [displayMajor, setDisplayMajor] = useState({
+    majorCourses: { disabled: false },
+  });
+  const [displayMinor, setDisplayMinor] = useState({ minorCourses: {} });
+  const [displayPED, setDisplayPED] = useState({ pedCourses: {} });
+  const [displayNSTP, setDisplayNSTP] = useState({ nstpCourses: {} });
+  const [disable, setDisable] = useState({ disable: false });
   let majorCourses = {};
   let minorCourses = {};
   let pedCourses = {};
@@ -49,10 +54,12 @@ function Enroll() {
         // console.log(collegeId);
         // console.log(response.data.courses);
         pedCourses = response.data.courses;
-        console.log(pedCourses);
+        setDisplayPED({ pedCourses });
+        console.log(displayPED);
       });
     } else {
-      console.log("3nd year ka na");
+      displayPED.pedCourses.message = "You already finished PE";
+      console.log(displayPED.pedCourses.message);
     }
 
     if (UserInfo.yearLevel < 2 && isNSTPCheck) {
@@ -63,10 +70,12 @@ function Enroll() {
         // console.log(collegeId);
         // console.log(response.data.courses);
         nstpCourses = response.data.courses;
-        console.log(nstpCourses);
+        setDisplayNSTP({ nstpCourses });
+        console.log(displayNSTP);
       });
     } else {
-      console.log("2nd year ka na");
+      displayNSTP.nstpCourses.message = "You already finished NSTP";
+      console.log(displayNSTP.nstpCourses.message);
     }
   };
 
@@ -75,11 +84,33 @@ function Enroll() {
     setIsMinorCheck(false);
     setIsPEDCheck(false);
     setIsNSTPCheck(false);
+    setDisplayMajor({ majorCourses: {} });
+    setDisplayMinor({ minorCourses: {} });
     console.log(isMajorCheck, isMinorCheck, isPEDCheck, isNSTPCheck);
   };
   const handleOnChange = (item, func) => {
     func(!item);
+
     console.log(!item);
+  };
+
+  const enrollButton = (courseInfo) => {
+    if (courseInfo.studentCount !== 50) {
+      console.log(courseInfo);
+
+      Axios.post("http://localhost:4000/enroll", {
+        courseCode: courseInfo.courseCode,
+        studentCount: courseInfo.studentCount,
+      }).then((response) => {
+        console.log(response.data);
+        alert(
+          `You are now enrolled at ${courseInfo.courseCode} - ${courseInfo.courseName}`
+        );
+        setDisable({ disable: true });
+      });
+    } else {
+      alert("maximum of 50 students has been reached");
+    }
   };
   return (
     <>
@@ -136,6 +167,139 @@ function Enroll() {
             View Available Courses/Subjects
           </button>
         </center>
+        <br />
+        <br />
+        <fieldset className="container">
+          <legend>Major Subjects</legend>
+
+          {Object.keys(displayMajor.majorCourses).map((item, index) => {
+            return (
+              <>
+                <li key={index} className="container li-availableCourses">
+                  <div>
+                    {displayMajor.majorCourses[item].courseCode} -{" "}
+                    {displayMajor.majorCourses[item].courseName}
+                  </div>
+                  <div>
+                    <span className="student-count">
+                      {displayMajor.majorCourses[item].studentCount}/50
+                    </span>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() =>
+                        enrollButton(displayMajor.majorCourses[item])
+                      }
+                      disabled={disable[item]}
+                    >
+                      Enroll
+                    </button>
+                  </div>
+                </li>
+              </>
+            );
+          })}
+        </fieldset>
+        <br />
+        <br />
+        <fieldset className="container">
+          <legend>Minor Subjects</legend>
+
+          {Object.keys(displayMinor.minorCourses).map((item, index) => {
+            return (
+              <>
+                <li key={index} className="container li-availableCourses">
+                  <div>
+                    {displayMinor.minorCourses[item].courseCode} -{" "}
+                    {displayMinor.minorCourses[item].courseName}
+                  </div>
+                  <div>
+                    <span className="student-count">
+                      {displayMinor.minorCourses[item].studentCount}/50
+                    </span>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() =>
+                        enrollButton(displayMinor.minorCourses[item])
+                      }
+                    >
+                      Enroll
+                    </button>
+                  </div>
+                </li>
+              </>
+            );
+          })}
+        </fieldset>
+        <br />
+        <br />
+        <fieldset className="container">
+          <legend>PED Subjects</legend>
+
+          {Object.keys(displayPED.pedCourses).map((item, index) => {
+            if (UserInfo.yearLevel < 3 && isPEDCheck) {
+              return (
+                <>
+                  <li key={index} className="container li-availableCourses">
+                    <div>
+                      {displayPED.pedCourses[item].courseCode} -{" "}
+                      {displayPED.pedCourses[item].courseName}
+                    </div>
+                    <div>
+                      <span className="student-count">
+                        {displayPED.pedCourses[item].studentCount}/50
+                      </span>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() =>
+                          enrollButton(displayPED.pedCourses[item])
+                        }
+                      >
+                        Enroll
+                      </button>
+                    </div>
+                  </li>
+                </>
+              );
+            } else {
+              return <>{displayPED.pedCourses.message}</>;
+            }
+          })}
+        </fieldset>{" "}
+        <br />
+        <br />
+        <fieldset className="container">
+          <legend>NSTP Subjects</legend>
+
+          {Object.keys(displayNSTP.nstpCourses).map((item, index) => {
+            if (UserInfo.yearLevel < 2 && isNSTPCheck) {
+              return (
+                <>
+                  <li key={index} className="container li-availableCourses">
+                    <div>
+                      {displayNSTP.nstpCourses[item].courseCode} -{" "}
+                      {displayNSTP.nstpCourses[item].courseName}
+                    </div>
+                    <div>
+                      <span className="student-count">
+                        {displayNSTP.nstpCourses[item].studentCount}/50
+                      </span>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() =>
+                          enrollButton(displayNSTP.nstpCourses[item])
+                        }
+                      >
+                        Enroll
+                      </button>
+                    </div>
+                  </li>
+                </>
+              );
+            } else {
+              return <>{displayNSTP.nstpCourses.message}</>;
+            }
+          })}
+        </fieldset>
       </div>
     </>
   );
