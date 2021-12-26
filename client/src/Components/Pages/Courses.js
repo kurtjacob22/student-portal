@@ -4,9 +4,7 @@ import { UserInfo } from "../UserInfo";
 import Axios from "axios";
 
 function Courses() {
-  const [viewCourses, setViewCourses] = useState({
-    courses: { disable: false },
-  });
+  const [viewCourses, setViewCourses] = useState({ courses: {} });
   const [disable, setDisable] = useState(true);
   const showCourses = () => {
     Axios.post("http://localhost:4000/viewStudentCourses", {
@@ -41,7 +39,7 @@ function Courses() {
       <br />
       <br />
       <br />
-      <div className="container courses">
+      <div className="container courses animate__animated animate__fadeInUp">
         <button className="btn btn-primary" onClick={showCourses}>
           Show Subjects/Courses
         </button>
@@ -68,6 +66,7 @@ function Courses() {
                     onClick={() =>
                       attendance(viewCourses.courses[item].courseCode)
                     }
+                    disabled={disable}
                   >
                     Attendance
                   </button>

@@ -47,6 +47,9 @@ function Profile() {
       <br />
       <br />
       <div className="profile">
+        <span className="profile-title container animate__animated animate__fadeInUp">
+          PROFILE
+        </span>
         <span className="student-info container animate__animated animate__fadeInUp">
           <span>Student ID:</span> {UserInfo.studentId}
         </span>
@@ -86,7 +89,6 @@ function Profile() {
         <span className="student-info container animate__animated animate__fadeInUp">
           <span>Year Level:</span> {UserInfo.yearLevel}
         </span>
-
         <span className="student-info container animate__animated animate__fadeInUp">
           <span>Address:</span> {UserInfo.address}
         </span>
@@ -97,7 +99,6 @@ function Profile() {
             Edit
           </a>
         </span>
-
         <div className="modal-container">
           <div className="text-center">
             <br />

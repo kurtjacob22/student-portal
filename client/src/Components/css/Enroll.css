@@ -1,4 +1,5 @@
-.enroll-title {
+.enroll-title,
+.profile-title {
   font-weight: bold;
   font-family: rubik;
 }

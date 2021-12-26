@@ -72,9 +72,11 @@ function Settings() {
       <br />
       <br />
       <br />
-      <div className="settings">
-        <div className="container settings-title">SETTINGS</div>
-        <fieldset className="container">
+      <div className="settings ">
+        <div className="container settings-title animate__animated animate__fadeInUp">
+          SETTINGS
+        </div>
+        <fieldset className="container animate__animated animate__fadeInUp">
           <legend className="utility-title">
             {" "}
             Change Your Password Utility{" "}
@@ -126,7 +128,7 @@ function Settings() {
             </fieldset>
           </center>
         </fieldset>
-        <fieldset className="container">
+        <fieldset className="container animate__animated animate__fadeInUp">
           <center>
             <legend className="log-field">Log History</legend>
             <button className="btn btn-primary" onClick={viewLogs}>

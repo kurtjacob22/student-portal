@@ -119,13 +119,16 @@ function Enroll() {
       <br />
       <div className="settings container">
         <center>
-          <h1 className="enroll-title">ENROLLMENT</h1>
+          <h1 className="enroll-title animate__animated animate__fadeInUp">
+            ENROLLMENT
+          </h1>
           <input
             type="checkbox"
             name="courses"
             value="major"
             checked={isMajorCheck}
             onChange={() => handleOnChange(isMajorCheck, setIsMajorCheck)}
+            className="animate__animated animate__fadeInUp"
           />
           Major Subjects
           <br />
@@ -134,6 +137,7 @@ function Enroll() {
             name="courses"
             value="minor"
             checked={isMinorCheck}
+            className="animate__animated animate__fadeInUp"
             onChange={() => handleOnChange(isMinorCheck, setIsMinorCheck)}
           />
           Minor Subjects
@@ -143,6 +147,7 @@ function Enroll() {
             name="courses"
             value="ped"
             checked={isPEDCheck}
+            className="animate__animated animate__fadeInUp"
             onChange={() => handleOnChange(isPEDCheck, setIsPEDCheck)}
           />
           PE Subjects
@@ -152,21 +157,28 @@ function Enroll() {
             name="courses"
             value="nstp"
             checked={isNSTPCheck}
+            className="animate__animated animate__fadeInUp"
             onChange={() => handleOnChange(isNSTPCheck, setIsNSTPCheck)}
           />
           NSTP Subjects
           <br />
-          <button className="btn btn-danger" onClick={clearSelection}>
+          <button
+            className="btn btn-danger animate__animated animate__fadeInUp"
+            onClick={clearSelection}
+          >
             Clear Selection
           </button>
           <br />
-          <button className="btn btn-primary" onClick={viewAvailableCourses}>
+          <button
+            className="btn btn-primary animate__animated animate__fadeInUp"
+            onClick={viewAvailableCourses}
+          >
             View Available Courses/Subjects
           </button>
         </center>
         <br />
         <br />
-        <fieldset className="container">
+        <fieldset className="container animate__animated animate__fadeInUp">
           <legend>Major Subjects</legend>
 
           {Object.keys(displayMajor.majorCourses).map((item, index) => {
@@ -197,7 +209,7 @@ function Enroll() {
         </fieldset>
         <br />
         <br />
-        <fieldset className="container">
+        <fieldset className="container animate__animated animate__fadeInUp">
           <legend>Minor Subjects</legend>
 
           {Object.keys(displayMinor.minorCourses).map((item, index) => {
@@ -228,7 +240,7 @@ function Enroll() {
         </fieldset>
         <br />
         <br />
-        <fieldset className="container">
+        <fieldset className="container animate__animated animate__fadeInUp">
           <legend>PED Subjects</legend>
 
           {Object.keys(displayPED.pedCourses).map((item, index) => {
@@ -263,7 +275,7 @@ function Enroll() {
         </fieldset>{" "}
         <br />
         <br />
-        <fieldset className="container">
+        <fieldset className="container animate__animated animate__fadeInUp">
           <legend>NSTP Subjects</legend>
 
           {Object.keys(displayNSTP.nstpCourses).map((item, index) => {
