@@ -9,13 +9,10 @@ function Enroll() {
   const [isPEDCheck, setIsPEDCheck] = useState(false);
   const [isNSTPCheck, setIsNSTPCheck] = useState(false);
   const collegeId = UserInfo.collegeId;
-  const [displayMajor, setDisplayMajor] = useState({
-    majorCourses: { disabled: false },
-  });
+  const [displayMajor, setDisplayMajor] = useState({ majorCourses: {} });
   const [displayMinor, setDisplayMinor] = useState({ minorCourses: {} });
   const [displayPED, setDisplayPED] = useState({ pedCourses: {} });
   const [displayNSTP, setDisplayNSTP] = useState({ nstpCourses: {} });
-  const [disable, setDisable] = useState({ disable: false });
   let majorCourses = {};
   let minorCourses = {};
   let pedCourses = {};
@@ -101,12 +98,12 @@ function Enroll() {
       Axios.post("http://localhost:4000/enroll", {
         courseCode: courseInfo.courseCode,
         studentCount: courseInfo.studentCount,
+        id: UserInfo.studentId,
+        collegeId: courseInfo.studentCount,
+        courseName: courseInfo.courseName,
       }).then((response) => {
         console.log(response.data);
-        alert(
-          `You are now enrolled at ${courseInfo.courseCode} - ${courseInfo.courseName}`
-        );
-        setDisable({ disable: true });
+        alert(response.data.message);
       });
     } else {
       alert("maximum of 50 students has been reached");
@@ -189,7 +186,6 @@ function Enroll() {
                       onClick={() =>
                         enrollButton(displayMajor.majorCourses[item])
                       }
-                      disabled={disable[item]}
                     >
                       Enroll
                     </button>

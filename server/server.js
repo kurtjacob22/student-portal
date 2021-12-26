@@ -164,13 +164,40 @@ app.post("/editContacts", async (req, res, next) => {
 });
 
 app.post("/enroll", async (req, res) => {
-  const UPDATE_QUERY = `UPDATE studentportal.availablesubjects SET studentCount = ${req.body.studentCount} + 1 WHERE courseCode LIKE '${req.body.courseCode}'`;
-  connection.query(UPDATE_QUERY, (err, result) => {
+  const UPDATE_STUDENT_COUNT = `UPDATE studentportal.availablesubjects SET studentCount = ${req.body.studentCount} + 1 WHERE courseCode LIKE '${req.body.courseCode}';`;
+  const CHECK_IF_DUPLICATE = `SELECT * FROM studentportal.subjects WHERE courseCode LIKE '${req.body.courseCode}' AND studentId LIKE ${req.body.id};`;
+  const INSERT_NEW = `INSERT INTO studentportal.subjects (courseCode, courseName, collegeId, studentId) VALUES ('${req.body.courseCode}', '${req.body.courseName}', ${req.body.collegeId}, ${req.body.id});`;
+  connection.query(CHECK_IF_DUPLICATE, (err, result) => {
     if (err) {
       console.log(err);
     }
+    if (result.length > 0) {
+      // res.send(result);
+      // console.log(result[0]);
+      res.send({
+        message: `Sorry, you've already enrolled in ${req.body.courseCode}`,
+      });
+    } else {
+      // res.send({
+      //   message: `Thankyou for enrolling in ${req.body.courseCode}`,
+      //   newStudentCount: req.body.studentCount + 1,
+      // });
+      connection.query(INSERT_NEW, (err, result) => {
+        if (err) {
+          console.log(err);
+        }
+        res.send({
+          message: `Thankyou for enrolling in ${req.body.courseCode} ${req.body.courseName}`,
+        });
+        connection.query(UPDATE_STUDENT_COUNT, (err, result) => {
+          if (err) {
+            console.log(err);
+          }
+        });
+      });
+    }
   });
-  res.send({ message: "success", newStudentCount: req.body.studentCount + 1 });
+
   console.log(req.body);
 });
 
