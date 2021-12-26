@@ -1,8 +1,6 @@
 .profile {
   display: flex;
   height: 120vh !important;
-  align-items: start !important;
-  justify-content: center !important;
   font-size: 3rem;
   flex-direction: column;
 }

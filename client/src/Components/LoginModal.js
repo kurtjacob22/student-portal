@@ -112,9 +112,7 @@ function LoginModal() {
                 </div>
               </form>
             </div>
-            <div className="modal-footer">
-              <a href="#">Forgot Password?</a>
-            </div>
+            <div className="modal-footer"></div>
           </div>
         </div>
       </div>
