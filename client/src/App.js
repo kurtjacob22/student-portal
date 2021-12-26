@@ -7,6 +7,7 @@ import Error from "./Components/Pages/Error";
 import Profile from "./Components/Pages/Profile";
 import Settings from "./Components/Pages/Settings";
 import Enroll from "./Components/Pages/Enroll";
+import Courses from "./Components/Pages/Courses";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/profile/1/:id" element={<Profile />} />
         <Route path="/settings/1/:id" element={<Settings />} />
         <Route path="/enroll/1/:id" element={<Enroll />} />
+        <Route path="/courses/1/:id" element={<Courses />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

@@ -201,6 +201,52 @@ app.post("/enroll", async (req, res) => {
   console.log(req.body);
 });
 
+app.post("/viewStudentCourses", async (req, res) => {
+  const VIEW_COURSES = `SELECT * FROM studentportal.subjects WHERE studentId LIKE ${req.body.studentId}`;
+  connection.query(VIEW_COURSES, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send({ message: "success", courses: result });
+  });
+});
+
+app.post("/attendance", async (req, res) => {
+  const ATTENDANCE_INSERT = `INSERT INTO studentportal.attendance (studentId, courseCode, dateTime) VALUES (${req.body.id}, '${req.body.courseCode}', CURRENT_TIMESTAMP)`;
+  const CHECK_IF_PRESENT = `SELECT * FROM studentportal.attendance WHERE (studentId LIKE ${req.body.id} AND dateTime LIKE '${req.body.date}%') AND courseCode LIKE '${req.body.courseCode}'`;
+  connection.query(CHECK_IF_PRESENT, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    if (result.length > 0) {
+      res.send({
+        message: "You've already taken your attendance",
+        result: result,
+      });
+    } else {
+      connection.query(ATTENDANCE_INSERT, (err) => {
+        if (err) {
+          console.log(err);
+        }
+        res.send({ message: "success", result: result });
+      });
+      // res.send({ message: "success", result: result });
+    }
+  });
+});
+
+// app.post("/checkPassword", (req, res) => {
+//   const CHECK_PASSWORD = `SELECT * FROM studentportal.students WHERE studentId LIKE ${req.body.id} AND password LIKE ${req.body.password}`;
+//   connection.query(CHECK_PASSWORD, (err, result) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     if (result.length > 0) {
+//       res.send({ message: "success", result: result });
+//     }
+//   });
+// });
+
 //! PORT
 app.listen(4000, () => {
   console.log("server is working in port 4000");

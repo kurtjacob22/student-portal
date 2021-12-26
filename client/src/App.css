@@ -6,6 +6,7 @@
 @import "./Components/css/Profile.css";
 @import "./Components/css/Settings.css";
 @import "./Components/css/Enroll.css";
+@import "./Components/css/Courses.css";
 
 * {
   box-sizing: border-box;
@@ -28,7 +29,8 @@ a {
 
 .test,
 .settings,
-.profile {
+.profile,
+.courses {
   height: 100vh;
 
   background: url("./Components/assets/PLM-bg.png");
