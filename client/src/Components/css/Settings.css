@@ -1,7 +1,6 @@
 .settings-title {
-  font-size: 3rem;
-  color: #337ab7;
   font-weight: bold;
+  font-family: rubik;
 }
 
 .utility-title {
@@ -11,7 +10,7 @@
   padding: 5px;
   padding-left: 20px;
   font-weight: bold;
-  background-color: #d5a106;
+  background-color: rgb(114, 108, 108);
 }
 
 .label1-util {
@@ -40,7 +39,7 @@
 .change-pass-title {
   margin-top: 20px;
   padding: 10px;
-  background-color: #d5a106;
+  background-color: rgb(114, 108, 108);
   color: white;
 }
 
@@ -62,17 +61,17 @@
 }
 
 .log-field {
-  color: white;
+  color: black;
   padding: 6px;
-  background-color: #d5a106;
+  /* background-color: #d5a106; */
   margin-top: 30px;
   font-weight: bold;
 }
 
 table {
   width: 100%;
-  background-color: #d5a106;
-  color: white;
+  /* background-color: #d5a106; */
+  color: black;
   text-align: center;
 }
 .log-label {

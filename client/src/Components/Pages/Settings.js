@@ -73,9 +73,9 @@ function Settings() {
       <br />
       <br />
       <div className="settings ">
-        <div className="container settings-title animate__animated animate__fadeInUp">
+        <h1 className="container settings-title animate__animated animate__fadeInUp">
           SETTINGS
-        </div>
+        </h1>
         <fieldset className="container animate__animated animate__fadeInUp">
           <legend className="utility-title">
             {" "}
@@ -171,7 +171,7 @@ function Settings() {
             </table>
 
             <button
-              className="btn btn-primary btn-delete-history"
+              className="btn btn-danger btn-delete-history"
               onClick={deleteLogs}
             >
               Delete History
