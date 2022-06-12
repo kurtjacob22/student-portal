@@ -1,3 +1,9 @@
+//* JSX file for the Course View Page
+//* ---------- Imports of react hooks, routers, axios
+//* ---------- implements Animate.CSS for minor animations
+//* ---------- can view current subjects and courses of a student
+//* ---------- attendance function
+
 import React, { useState } from "react";
 import Navbar from "../Navbar";
 import { UserInfo } from "../UserInfo";
@@ -10,7 +16,6 @@ function Courses() {
     Axios.post("http://localhost:4000/viewStudentCourses", {
       studentId: UserInfo.studentId,
     }).then((response) => {
-      //   console.log(response.data.courses);
       setViewCourses(response.data);
       console.log(viewCourses);
       setDisable(!disable);
@@ -22,7 +27,6 @@ function Courses() {
     const month = date.getMonth() + 1;
     const day = date.getDate();
 
-    //   alert("Incorrect Password");
     Axios.post("http://localhost:4000/attendance", {
       courseCode: courseCode,
       id: UserInfo.studentId,

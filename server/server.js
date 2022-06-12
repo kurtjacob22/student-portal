@@ -9,27 +9,6 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/userAuthorized", function (req, res) {
-  res.send({ authorized: true });
-});
-app.post("/userUnauthorized", function (req, res) {
-  res.send({ authorized: false });
-});
-
-// app.post("/postreq", async (req, res, next) => {
-//   const ADD_QUERY = `INSERT INTO studentportal.userlogin (email, password) VALUES ('${req.body.search}', '${req.body.search}')`;
-//   // console.log("data has been received");
-//   connection.query(ADD_QUERY, (err, res) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     // else {
-//     //   res.send("The query is successful");
-//     // }
-//   });
-//   console.log(req.body);
-// });
-
 app.post("/logHistory", async (req, res, next) => {
   const ADD_QUERY = `INSERT INTO studentportal.loghistory VALUES (${req.body.username}, '${req.body.city}, ${req.body.countryName}', '${req.body.ip}', '${req.body.timeAndDate}')`;
   // console.log("data has been received");
@@ -46,7 +25,6 @@ app.post("/deleteLogs", async (req, res) => {
   connection.query(DELETE_QUERY, (err, result) => {
     if (err) {
       console.log(err);
-      // res.send({ message: err });
     }
     console.log(req.body);
   });
@@ -134,8 +112,6 @@ app.post("/login", async (req, res, next) => {
     }
 
     if (result.length > 0) {
-      // res.send(result);
-      // console.log(result[0]);
       res.send({
         message: `Hello ${result[0].firstname} ${result[0].surname}!`,
         login: true,
@@ -172,16 +148,10 @@ app.post("/enroll", async (req, res) => {
       console.log(err);
     }
     if (result.length > 0) {
-      // res.send(result);
-      // console.log(result[0]);
       res.send({
         message: `Sorry, you've already enrolled in ${req.body.courseCode}`,
       });
     } else {
-      // res.send({
-      //   message: `Thankyou for enrolling in ${req.body.courseCode}`,
-      //   newStudentCount: req.body.studentCount + 1,
-      // });
       connection.query(INSERT_NEW, (err, result) => {
         if (err) {
           console.log(err);
@@ -230,22 +200,9 @@ app.post("/attendance", async (req, res) => {
         }
         res.send({ message: "success", result: result });
       });
-      // res.send({ message: "success", result: result });
     }
   });
 });
-
-// app.post("/checkPassword", (req, res) => {
-//   const CHECK_PASSWORD = `SELECT * FROM studentportal.students WHERE studentId LIKE ${req.body.id} AND password LIKE ${req.body.password}`;
-//   connection.query(CHECK_PASSWORD, (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     if (result.length > 0) {
-//       res.send({ message: "success", result: result });
-//     }
-//   });
-// });
 
 //! PORT
 app.listen(4000, () => {

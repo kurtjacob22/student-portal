@@ -1,3 +1,8 @@
+//* JSX file for the Profile View Page
+//* ---------- Imports of react hooks, routers, axios
+//* ---------- implements Animate.CSS for minor animations
+//* ---------- can edit and update personal data such as contact number
+
 import React, { useState } from "react";
 import { UserInfo } from "../UserInfo";
 import Navbar from "../Navbar";

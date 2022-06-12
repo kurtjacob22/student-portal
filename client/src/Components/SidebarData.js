@@ -1,3 +1,6 @@
+//* Icons imported from https://react-icons.github.io/react-icons/search?q=menu
+//* ---------- Data for navigation bar
+
 import React from "react";
 import * as Ai from "react-icons/ai";
 import * as Io from "react-icons/io5";

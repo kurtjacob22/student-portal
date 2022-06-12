@@ -1,3 +1,7 @@
+//* JSX file for the NavBar Component
+//* ---------- Imports of react hooks, Icons, and external data from ./SliderData
+//* ---------- features a toggle NavBar
+
 import React, { useState } from "react";
 import * as Ai from "react-icons/ai";
 import { Link } from "react-router-dom";

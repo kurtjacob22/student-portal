@@ -1,4 +1,7 @@
-// import logo from "./logo.svg";
+//* Main file of the react app. contents are:
+//* ---------- Imports of child components and overall CSS
+//* ---------- React Routes Implementation
+
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./Components/Pages/Dashboard";

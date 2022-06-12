@@ -1,3 +1,8 @@
+//* JSX file for the SearchBar
+//* ---------- Imports of react hooks and react icons
+//* ---------- includes link for navigation
+//* ---------- modifies the plm search link for external searching
+
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";

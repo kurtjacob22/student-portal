@@ -1,3 +1,9 @@
+//* JSX file for the Settings View Page
+//* ---------- Imports of react hooks, routers, axios
+//* ---------- implements Animate.CSS for minor animations
+//* ---------- can save up to 5 latest log history
+//* ---------- can change password
+
 import React, { useState } from "react";
 import Navbar from "../Navbar";
 import { UserInfo } from "../UserInfo";
@@ -40,9 +46,7 @@ function Settings() {
   const viewLogs = () => {
     const postData = { id };
     Axios.post("http://localhost:4000/viewLogs", postData).then((response) => {
-      // logs = response.data.logData;
       const logLength = response.data.logData.length - 1;
-      // logHistory.current = { logs };
 
       if (response.data.logData[logLength] !== undefined) {
         setDataHistory1(response.data.logData[logLength]);
@@ -59,9 +63,6 @@ function Settings() {
       if (response.data.logData[logLength - 4] !== undefined) {
         setDataHistory5(response.data.logData[logLength - 4]);
       }
-      // console.log(dataHistory1);
-      // console.log(logHistory.current.logs[0].studentId);
-      // console.log(logHistory);
     });
   };
   return (

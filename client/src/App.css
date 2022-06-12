@@ -1,3 +1,6 @@
+/** Main CSS File **/
+/** Includes all the other external CSS and bootstrap **/
+
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 @import "./Components/css/Navbar.css";
 @import "./Components/css/LoginPage.css";

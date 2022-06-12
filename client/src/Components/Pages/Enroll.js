@@ -1,3 +1,8 @@
+//* JSX file for the Profile View Page
+//* ---------- Imports of react hooks, routers, axios
+//* ---------- implements Animate.CSS for minor animations
+//* ---------- can enroll to a specific subject/course depending on your Major
+
 import React, { useState } from "react";
 import Navbar from "../Navbar";
 import { UserInfo } from "../UserInfo";
@@ -24,8 +29,6 @@ function Enroll() {
         id: collegeId,
         type: "major",
       }).then((response) => {
-        // console.log(collegeId);
-        // console.log(response.data.courses);
         majorCourses = response.data.courses;
         setDisplayMajor({ majorCourses });
         console.log(displayMajor);
@@ -36,8 +39,6 @@ function Enroll() {
         id: collegeId,
         type: "minor",
       }).then((response) => {
-        // console.log(collegeId);
-        // console.log(response.data.courses);
         minorCourses = response.data.courses;
         setDisplayMinor({ minorCourses });
         console.log(displayMinor);
@@ -48,8 +49,6 @@ function Enroll() {
         id: collegeId,
         type: "ped",
       }).then((response) => {
-        // console.log(collegeId);
-        // console.log(response.data.courses);
         pedCourses = response.data.courses;
         setDisplayPED({ pedCourses });
         console.log(displayPED);
@@ -64,8 +63,6 @@ function Enroll() {
         id: collegeId,
         type: "nstp",
       }).then((response) => {
-        // console.log(collegeId);
-        // console.log(response.data.courses);
         nstpCourses = response.data.courses;
         setDisplayNSTP({ nstpCourses });
         console.log(displayNSTP);

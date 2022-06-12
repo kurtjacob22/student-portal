@@ -1,3 +1,5 @@
+//* Serves as the temporary cache file.
+
 export const UserInfo = [
   {
     studentId: null,

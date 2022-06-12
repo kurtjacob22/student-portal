@@ -1,3 +1,8 @@
+//* JSX file for the Profile View Page
+//* ---------- Imports of react hooks, routers, axios
+//* ---------- implements Animate.CSS for minor animations
+//* ---------- can enroll to a specific subject/course depending on your Major
+
 import React from "react";
 import { Navigate } from "react-router-dom";
 import Navbar from "../Navbar";
@@ -7,8 +12,6 @@ import { UserInfo } from "../UserInfo";
 import "animate.css";
 
 function Dashboard({ authorized }) {
-  // const { id } = useParams();
-
   if (!auth.isAuthenticated() && authorized === false) {
     return <Navigate to="/login" />;
   } else if (UserInfo.studentId === null) {

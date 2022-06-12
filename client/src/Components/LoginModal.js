@@ -1,3 +1,7 @@
+//* JSX file for the LoginModal Component
+//* ---------- Imports of react hooks, routers, axios
+//* ---------- uses axios for IP Geolocation API and connecting to the REST API
+
 import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -10,8 +14,6 @@ function LoginModal() {
   const navigate = useNavigate();
 
   const loginBtn = (e) => {
-    // console.log(username);
-    // console.log(password);
     e.preventDefault();
     const postData = {
       username,
@@ -48,10 +50,8 @@ function LoginModal() {
         UserInfo.contactNumber = response.data.userInfo.contactNumber;
 
         navigate(`/dashboard/1/${UserInfo.studentId * 97 + 1 * 349834 * 6}`);
-        // console.log(auth.isAuthenticated());
       } else {
         auth.logout();
-        // console.log(auth.isAuthenticated());
       }
     });
   };
@@ -85,7 +85,7 @@ function LoginModal() {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Username"
+                    placeholder="Student Number"
                     required="required"
                     onInput={(e) => setUsername(e.target.value)}
                   />

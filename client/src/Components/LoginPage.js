@@ -1,3 +1,7 @@
+//* JSX file for the LoginPage Component
+//* ---------- Imports of react hooks, and external data from ./LoginModal
+//* ---------- useEffect for onLoad data
+
 import React, { useEffect } from "react";
 import LoginModal from "./LoginModal";
 import { UserInfo } from "./UserInfo";
